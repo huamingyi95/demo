@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- 写一个距离2022年5月1日的倒计时,在页面显示: 还剩xx天:xx时:xx分:xx秒 -->
+		<h1></h1>
+		<script>
+			var h1 = document.querySelector('h1')
+			var time = '2022-5-1'
+      setInterval(function(){
+        h1.innerHTML = countdown(time)
+       },1000)
+			function countdown(time) {
+				var nowTimestamp = +new Date()
+				var endTimestamp = +new Date(time)
+				// console.log(endTimestamp )
+				var remain_time = endTimestamp - nowTimestamp
+				var d = parseInt(remain_time / 1000 / 60 / 60 / 24) //天
+				d = d > 9 ? d : '0' + d
+ 				var h = parseInt((remain_time / 1000 / 60 / 60) % 24) //时
+				h = h > 9 ? h : '0' + h
+				var m = parseInt((remain_time / 1000 / 60) % 60) //分
+				m = m > 9 ? m : '0' + m
+				var s = parseInt((remain_time / 1000) % 60) //秒
+				s = s > 9 ? s : '0' + s
+				return `还剩${d}天:${h}时:${m}分:${s}秒`
+			}
+		</script>
+	</body>
+</html>

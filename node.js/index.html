@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<button id="btnGET">get</button>
+		<button id="btnPOST">post</button>
+		<script>
+			$('#btnGET').on('click', function () {
+				$.ajax({
+					type: 'GET',
+					url: 'http://127.0.0.1/get',
+					data: { name: 'zs', age: 20 },
+					success: function (res) {
+						console.log(res)
+					},
+				})
+			})
+			$('#btnPOST').on('click', function () {
+				$.ajax({
+					type: 'POST',
+					url: 'http://127.0.0.1/post',
+					data: { author: '小明', publish: '晓明历险记' },
+					success: function (res) {
+						console.log(res)
+					},
+				})
+			})
+		</script>
+	</body>
+</html>

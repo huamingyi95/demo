@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			var str = 'abaasdffggghhjjkkgfddsssss3444343'
+			// 1、 字符串的长度
+			console.log(str.length)
+			// 2、 取出指定位置的字符，
+			function take_out(index) {
+				console.log(str.charAt(index))
+			}
+			take_out(0) //如：0,3,5,9等
+			// 3、 查找指定字符是否在以上字符串中存在
+			function find(char) {
+				var num = str.indexOf(char)
+				if (num == -1) {
+					console.log('此字符不存在')
+				} else {
+					console.log('字符存在')
+				}
+			}
+			find('i') //此字符不存在
+			find('b') //字符存在
+			// 4、 替换指定的字符
+			str1 = str.replace(/g/g, '22') //全局替换
+			console.log(str)
+			console.log(str1)
+			// 5、 截取指定开始位置到结束位置的字符串，如：取得1-5的字符串
+			str2 = str.substr(1, 5)
+			console.log(str2)
+			// 6、 找出以上字符串中出现次数最多的字符和出现的次数
+			var obj = {}
+			for (var i = 0; i < str.length; i++) {
+				var char = str.charAt(i)
+				if (obj[char]) {
+					obj[char]++
+				} else {
+					obj[char] = 1
+				}
+			}
+			console.log(obj)
+			var max = 0
+			var ch = ''
+			for (var k in obj) {
+				if (obj[k] > max) {
+					max = obj[k]
+					ch = k
+				}
+			}
+			console.log(`出现次数最多的字符是${ch},有${max}次`)
+			// 7、 遍历字符串，并将遍历出的字符两头添加符号“@”
+      var arr=str.split('')
+      var newArr=[]
+			for (var i = 0; i < arr.length; i++) {
+        newArr.push(`@${arr[i]}@`)
+			}
+			console.log(newArr.join())
+		</script>
+	</body>
+</html>
